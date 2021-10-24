@@ -1,37 +1,95 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF=8">
+    <meta http-equiv="X-UA=Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device=width, initial=scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        function userData()
+        {  
+            document.getElementById('pinterest').innerHTML = "";
+            document.getElementById('pid').innerHTML = document.getElementById('uid').value;
+            document.getElementById('pname').innerHTML = document.getElementById('uname').value;
+            document.getElementById('pemail').innerHTML = document.getElementById('uemail').value;
+            document.getElementById('pclass').innerHTML = document.getElementById('utextclass').value;
+            document.getElementById('pdate').innerHTML = document.getElementById('udate').value;
+            document.getElementById('pstatus').innerHTML = document.getElementById('ustatus').value;
+            var tags = document.getElementsByTagName('input');
+            for (var i = 0; i < tags.length; i++) {
+                if (tags[i].name.substr(0,4)=="uage") {
+                    if (tags[i].checked) {
+                        document.getElementById('page').innerHTML = tags[i].value;
+                    }
+                }
+            }               
+            var tags = document.getElementsByTagName('input');
+            for (var i = 0; i < tags.length; i++) {
+                if (tags[i].name.substr(0,4)=="usex") {
+                    if (tags[i].checked) {
+                        document.getElementById('psex').innerHTML = tags[i].value;
+                    }
+                }
+            }
+            var tags = document.getElementsByName('uinterest');
+            for (var i = 0; i < tags.length; i++) {
+                if (tags[i].name.substr(0,9)=="uinterest") {
+                    if (tags[i].checked) {
+                        document.getElementById('pinterest').innerHTML += tags[i].value+" ";
+                    }
+                }
+            }  
+        }
+        function myrange()
+        {
+            document.getElementById('utextclass').value = document.getElementById('uclass').value
+        }
 
-You can use the [editor on GitHub](https://github.com/Shen0803/nas.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Shen0803/nas.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    </script>
+</head>
+<body bgcolor="#A4F4D8">
+    <form>
+        <h1 align="center" style="text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,0 0 0.2em #87F">會員基本資料</h1>
+        <h2 style="text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,0 0 0.2em #87F">作業3:A00000 王姿喧A109222044</h2>
+        <p>帳號<input name="uid" type="text" id="uid" ></p>
+        <p>姓名<input name="uname" type="text" id="uname" ></p>
+        <p>e-mail <input name="uemail" type="email" id="uemail" ></p>
+        <p>年齢
+        <input name="uage" type="radio" value="10-20" >10-20
+        <input name="uage" type="radio" value="21-30" >21-30
+        <input name="uage" type="radio" value="31-40" >31-40</p>
+        <p>性別
+        <input name="usex" id="usexf" type="radio" value="男" >男
+        <input name="usex" id="usext" type="radio" value="女" >女</p>
+        <p>興趣
+        <input name="uinterest" type="checkbox" value="唱歌" >唱歌
+        <input name="uinterest" type="checkbox" value="上網" >上網
+        <input name="uinterest" type="checkbox" value="旅行" >旅行</p>
+        <p>在學请況(在學/專業)
+        <select name="ustatus" id="ustatus" >
+        <option value="在學">在學</option>
+        <option value="畢業">畢業</option>
+        </select></p>
+        <p>目前年級(1~4)
+        <input type="range" min="1" max="4" value="1" id="uclass" onchange = "myrange()">
+        <input name="utextclass" id="utextclass" type="text" value="1" readonly="readonly"></p>
+        <p>填寫日期
+        <input type="date" id="udate" ></p>
+        <input name="b1" type="button" value="確認" onclick="userData()"><br><br>
+        <p>=================</p>
+        <div>
+        帳號:<label id="pid" ></label><br>
+        姓名:<label id="pname"></label><br>
+        e-mail: <label id="pemail"></label><br>
+        年龄:<label id="page"></label><br>
+        性別:<label id="psex"></label><br>
+        興趣:<label id="pinterest"></label><br>
+        在學況:<label id="pstatus"></label><br>
+        目前年級:<label id="pclass"></label><br>
+        填寫日期:<label id="pdate"></label><br>
+        </div>
+        </form>
+</body>
+</html>
+<!name可以一樣，id不行>
