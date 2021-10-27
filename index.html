@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device=width, initial=scale=1.0">
     <title>Document</title>
     
-    <script>
+    <script>        
         function userData()
         {  
+            var today = new Date();
             var str = "";
             document.getElementById('pinterest').innerHTML = "";
             document.getElementById('pid').innerHTML = document.getElementById('uid').value;
             document.getElementById('pname').innerHTML = document.getElementById('uname').value;
             document.getElementById('pemail').innerHTML = document.getElementById('uemail').value;
             document.getElementById('pclass').innerHTML = document.getElementById('utextclass').value;
-            document.getElementById('pdate').innerHTML = document.getElementById('udate').value;
+            document.getElementById('pdate').innerHTML = document.getElementById('udate').value + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             document.getElementById('pstatus').innerHTML = document.getElementById('ustatus').value;
             var tags = document.getElementsByTagName('input');
             for (var i = 0; i < tags.length; i++) {
@@ -45,7 +46,7 @@
         }
         function myrange()
         {
-            document.getElementById('utextclass').value = document.getElementById('uclass').value
+            document.getElementById('utextclass').value = document.getElementById('uclass').value;
         }
 
     </script>
