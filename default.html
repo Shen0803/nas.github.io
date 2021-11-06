@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF=8">
@@ -5,15 +6,17 @@
     <meta name="viewport" content="width=device=width, initial=scale=1.0">
     <title>Document</title>
     
-    <script>
+    <script>        
         function userData()
         {  
+            var today = new Date();
+            var str = "";
             document.getElementById('pinterest').innerHTML = "";
             document.getElementById('pid').innerHTML = document.getElementById('uid').value;
             document.getElementById('pname').innerHTML = document.getElementById('uname').value;
             document.getElementById('pemail').innerHTML = document.getElementById('uemail').value;
             document.getElementById('pclass').innerHTML = document.getElementById('utextclass').value;
-            document.getElementById('pdate').innerHTML = document.getElementById('udate').value;
+            document.getElementById('pdate').innerHTML = document.getElementById('udate').value + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             document.getElementById('pstatus').innerHTML = document.getElementById('ustatus').value;
             var tags = document.getElementsByTagName('input');
             for (var i = 0; i < tags.length; i++) {
@@ -35,19 +38,20 @@
             for (var i = 0; i < tags.length; i++) {
                 if (tags[i].name.substr(0,9)=="uinterest") {
                     if (tags[i].checked) {
-                        document.getElementById('pinterest').innerHTML += tags[i].value+" ";
+                        str += tags[i].value+"、";
+                        document.getElementById('pinterest').innerHTML = str.substring(0,str.length-1);
                     }
                 }
             }  
         }
         function myrange()
         {
-            document.getElementById('utextclass').value = document.getElementById('uclass').value
+            document.getElementById('utextclass').value = document.getElementById('uclass').value;
         }
 
     </script>
 </head>
-<body bgcolor="#A4F4D8">
+<body style="background-color : #A4F4D8">
     <form>
         <h1 align="center" style="text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,0 0 0.2em #87F">會員基本資料</h1>
         <h2 style="text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,0 0 0.2em #87F">作業3:A00000 王姿喧A109222044</h2>
@@ -76,7 +80,7 @@
         <p>填寫日期
         <input type="date" id="udate" ></p>
         <input name="b1" type="button" value="確認" onclick="userData()"><br><br>
-        <p>=================</p>
+        <p>=========================================================================================</p>
         <div>
         帳號:<label id="pid" ></label><br>
         姓名:<label id="pname"></label><br>
@@ -89,5 +93,7 @@
         填寫日期:<label id="pdate"></label><br>
         </div>
         </form>
+        <a href="index.html"><img src="img/return.png" width="70" height="50"></a>
 </body>
 </html>
+<!name可以一樣，id不行>
